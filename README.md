@@ -40,4 +40,8 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Application Flow Diagram
 
-![AppDiag](./movie-assessment.png)
+![AppFlow](./movie-assessment.png)
+
+## Swagger Implementation [Link](http://localhost:3000/api-doc)
+
+![Swagger](./swagger.png)
