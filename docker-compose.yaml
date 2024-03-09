@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:3.5
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=rIHsRHpPMeXf5F7v
+    restart: on-failure
+    command: ["--bind_ip_all"]
+    ports:
+      - 27017:27017
+    volumes:
+      - ./local/data:/data/db
+
+  move-assessment-app:
+    build: .
+    container_name: move-assessment
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+      - DATABASE_PASSWORD=rIHsRHpPMeXf5F7v
+      - DATABASE_HOST=mongodb
+      - DATABASE_USER=admin
+      - JWT_SECRET=OTojJ52I9kOZxe7
+      - DATABASE_NAME=movie-assessment
+    ports:
+      - 3000:3000
+    links:
+      - mongodb
